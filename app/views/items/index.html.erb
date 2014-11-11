@@ -1,0 +1,245 @@
+
+<!doctype html>
+<html><head>
+  
+
+    
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+
+
+    
+  </head>
+  <body>
+  
+    <!-- NAVIGATION MENU -->
+
+    <div class="navbar-nav navbar-inverse navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><%=image_tag=('/images/logo30.png')%> BLOCKS Dashboard</a>
+        </div> 
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html"><i class="icon-home icon-white"></i> Home</a></li>
+              <li><a href="manager.html"><i class="icon-folder-open icon-white"></i> File Manager</a></li>
+              <li><a href="calendar.html"><i class="icon-calendar icon-white"></i> Calendar</a></li>
+              <li><a href="tables.html"><i class="icon-th icon-white"></i> Tables</a></li>
+              <li><a href="login.html"><i class="icon-lock icon-white"></i> Login</a></li>
+              <li><a href="user.html"><i class="icon-user icon-white"></i> User</a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="container">
+
+    <!-- FIRST ROW OF BLOCKS -->     
+      <div class="row">
+
+      <!-- USER PROFILE BLOCK -->
+        <div class="col-sm-3 col-lg-3">
+          <div class="dash-unit">
+            <dtitle>User Profile</dtitle>
+            <hr>
+        <div class="thumbnail img-circle">
+          <div class="img-circle">
+    
+        </div>
+        </div><!-- /thumbnail -->
+        <h1>Marcel Newman</h1>
+        <h3>Madrid, Spain</h3>
+        <br>
+          <div class="info-user">
+            <span aria-hidden="true" class="li_user fs1"></span>
+            <span aria-hidden="true" class="li_settings fs1"></span>
+            <span aria-hidden="true" class="li_mail fs1"></span>
+            <span aria-hidden="true" class="li_key fs1"></span>
+          </div>
+        </div>
+        </div>
+
+     
+
+      <!-- DONUT CHART BLOCK -->
+        <div class="col-sm-12 col-lg-8">
+          <div class="dash-unit">
+          <dtitle>Disk Space</dtitle>
+          <hr>
+            <div id="space"></div>
+            <h2>65%</h2>
+
+            <h1>Listing items</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tags</th>
+      <th>Count</th>
+      <th>Supplier</th>
+      <th>Stock</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.tags %></td>
+        <td><%= item.count %></td>
+        <td><%= item.supplier %></td>
+        <td><%= item.stock %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>    
+     <%= link_to 'New User', new_item_path %>
+      </div>
+        </div>
+        
+     <br><br><br>
+        
+         <!-- DONUT CHART BLOCK -->
+        <div class="col-sm-3 col-lg-3">
+          <div class="dash-unit">
+          <dtitle>Site Bandwidth</dtitle>
+          <hr>
+            <div id="load"></div>
+            <h2>45%</h2>
+      </div>
+        </div>
+    
+
+    <!-- ACCORDION BLOCK -->     
+      <div class="col-sm-3 col-lg-3">
+        <div class="dash-unit">
+            <dtitle>Accordion</dtitle>
+            <hr>
+          <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                            Collapsible Group Item #1
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem.                        
+                </div>
+                        </div>
+                    </div>
+    
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                            Collapsible Group Item #2
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem.                      
+                </div>
+                        </div>
+                    </div>
+    
+                     <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                            Collapsible Group Item #3
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem.                        
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/accordion -->
+        </div>
+      </div>
+      
+      <div class="col-sm-3 col-lg-3">
+
+        <!-- LAST USER BLOCK -->     
+        <div class="half-unit">
+            <dtitle>Last Registered User</dtitle>
+            <hr>
+              <div class="cont2">
+                <%= image_tag=("/images/user-avatar.jpg") %>
+                <br>
+                <br>
+                <p>Paul Smith</p>
+                <p><bold>Liverpool, England</bold></p>
+              </div>
+        </div>
+        
+     
+        <!-- FAST CONTACT BLOCK -->     
+      <div class="col-sm-2 col-lg-2">
+        <div class="dash-unit">
+            <dtitle>Fast Contact</dtitle>
+            <hr>
+            <div class="cont">
+                  <form action="#get-in-touch" method="POST" id="contact">
+                      <input type="text" id="contactname" name="contactname" placeholder="Name">
+                      <input type="text" id="email" name="email" placeholder="Email">
+                      <div class="textarea-container"><textarea id="message" name="message" placeholder="Message"></textarea></div>
+                      <input type="submit" id="submit" name="submit" value="Send">
+                    </form>
+        </div>
+        </div>
+      </div>
+
+      
+      
+  </div> <!-- /container -->
+  <div id="footerwrap">
+        <footer class="clearfix"></footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-lg-12">
+            <p><%=image_tag=("/images/logo.png")%></p>
+            <p>    </p>
+            </div>
+
+          </div><!-- /row -->
+        </div><!-- /container -->   
+  </div><!-- /footerwrap -->
+
+
+    <!-- Le javascript
+    ================================================== -->
+    
+  
+
+     
+
+
+
+<!--   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+
+
+
+
+<!--   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+
+    </html>
