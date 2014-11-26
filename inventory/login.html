@@ -1,0 +1,93 @@
+<div class = "login_page" ng-controller ="login">
+		<div class = "login">
+		
+			<h1>SIGN IN</h1>
+			<p>Login to your inventory account</p>
+			<div class="list">
+				<!-- Email input -->
+				<label class="name" class="item item-input">
+					<input type="text" placeholder="Name">
+				</label>
+                <div>
+				<!-- Password input -->
+				<label class="password" class="item item-input">
+					<input type="password" placeholder="Password">
+				</label>
+                </div>
+			</div>
+			<!-- Login button box -->
+			<button><a href="#product">LOGIN</a></button>
+			
+		</div>	
+
+
+</div>
+
+<!-- Bottom sign up bar -->
+<a class="footerBar"
+    href="#/pages/register">
+				<div class="fakeBar"></div>
+                <h1>CREATE AN ACCOUNT &gt;</h1>
+</a>
+
+/********************************
+LOGIN STYLES
+********************************/
+
+.login {
+max-width:500px;
+margin:20px auto 0 auto;
+}
+
+.login_page{
+background-image: url("../images/bg.png");
+height: 400px;
+padding:10px;
+}
+
+.login p,
+.login h1 {
+text-align:center;
+color:#fff;
+margin:0;
+font-family:'Segoe UI Light';
+}
+
+.login h1 {
+font-size:2.5em;
+}
+
+.login p {
+font-size:1.3em;
+margin-bottom:10px;
+}
+
+.login button {
+width:100%;
+margin-top: 50px;
+}
+
+.login .name input  {
+border-radius:10px;
+border-bottom-left-radius:0;
+border-bottom-right-radius:0;
+border:1px solid #aaa;
+padding:5px 5px;
+}
+
+.login .password  input{
+border-radius:10px;
+border-top-left-radius:0;
+border-top-right-radius:0;
+border:1px solid #aaa;
+border-top:none;
+padding:5px 5px;
+}
+
+.list{
+text-align:center;
+margin-top:50px;
+}
+.footerBar{
+text-align:center;
+}

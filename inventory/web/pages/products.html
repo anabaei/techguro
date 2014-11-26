@@ -1,0 +1,70 @@
+<div class="masterhead">
+    <div class="container">
+        <nav class="nav">
+            <a class="nav-item active" href="#product">Inventory</a>
+            <a class="nav-item pull-right" href="#">Logout</a>
+            <a class="nav-item pull-right" href="#help">Help</a>
+            <a class="nav-item pull-right" href="#download">Download</a>
+            
+        </nav>
+    </div>
+</div>
+
+<h4 class="blog-post-title">Products</h4>
+
+<div class="table-responsive">
+<div class="panel panel-primary">
+  <div class="panel-heading">List of products
+      <div class="sw-search" >
+            <div class="nav-search" id="nav-search">
+                    Filter: <span class="input-icon">
+                        <input placeholder="Filter products list by product name..." class="nav-search-input" ng-model="filterProduct" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
+                        <i class="search-icon fa fa-search nav-search-icon"></i>
+                    </span>
+            </div>
+        </div>
+    </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+    <tr ng-show="products.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+    <tr ng-hide="products.length>-1"><td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td></tr>
+    
+    <tr><th ng-repeat="column in columns">{{column.text}}</th></tr>
+
+    <tr ng-repeat="product in products | filter:filterProduct | orderBy:'id'" id="{{product.id}}" animate-on-change='product.packing + product.stock + product.price + product.description' ng-animate=" 'animate'">
+        <td>{{product.id}}</td><td>{{product.name}}</td><td>{{product.price}}</td><td>{{product.stock}}</td><td>{{product.packing}}</td><td>{{product.description}}</td>
+        <td>
+            <button class="btn" ng-class="{Active:'btn-success', Inactive:''}[c.status]" ng-click="changeProductStatus(c);">{{product.status}}</button>
+        </td>
+        <td style="width:100px">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default fa fa-edit" ng-click="open(c);"></button>
+              <button type="button" class="btn btn-danger fa fa-trash-o" ng-click="deleteProduct(c);"></button>
+            </div>
+        </td>
+    </tr>
+    </table>
+    
+    
+  </div>
+</div>
+</div>
+
+<div class="panel panel-primary">
+				<div class="panel-heading"></div>
+                
+                <div class="text-center">
+                    <div class="panel-body">
+                        <b>Chart type: </b>
+                        <select class="input ng-pristine ng-valid" ng-model="chartType">
+                            <option value="pie">Pie</option>
+                            <option value="bar">Bar</option>
+                            <option value="line">Line</option>
+                            <option value="point">Point</option>
+                            <option value="area">Area</option>
+                        </select>
+                        <div class="charts">
+                            <div id="chart" class="chart ng-isolate-scope ng-scope" ac-config="config" ac-data="data" ac-chart="chartType">
+                                
+</div>
+              
