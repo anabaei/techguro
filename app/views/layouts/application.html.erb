@@ -10,15 +10,61 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
+<style>
+.btn-warning { background-color: black; } 
 
+body {
+    background-color: gray;
+}
+</style>
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<br>
+<br>
+<br>
+<%= notice %>
+<%= alert %>
 
+  <!-- NAVIGATION MEN -->
+    <div class="navbar-nav navbar-inverse navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%=image_tag=("/images/a.jpg")%> 
+        </div> 
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><i class="icon-home icon-white"></i> <%= link_to 'Home', items_path %></li>
+             <!--  <li><a href="show.json.jbuilder"><i class="icon-folder-open icon-white"></i> File Manager</a></li> -->
+            <!--   <li><a href="calendar.html"><i class="icon-calendar icon-white"></i> Calendar</a></li> -->
+             
+              <li><i class="icon-lock icon-white"></i> <%= link_to 'New', new_item_path %></a></li>
+             <!--  <li><a href="show.html.erb"><i class="icon-user icon-white"></i> User</a></li> -->
+             <% if current_user.present? %>
+           <!--   Welcome <%= current_user.name %>! -->
+             <li><i class="icon-lock icon-white"></i> <%= link_to 'Sign Out', logout_path %></a></li>
+             <% else %>
+              <li><i class="icon-lock icon-white"></i> <%= link_to 'sign up', new_user_path %></a></li>
+                <li><i class="icon-lock icon-white"></i> <%= link_to 'log in', login_path %></a></li>
+                 <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </div>
+  <% if current_user.present? %>
+         <h2>    Welcome <%= current_user.name %>! </h2>
+            <% else %>  <% end %>
+<br>
+<br><br>
 
 <%= yield %>
 

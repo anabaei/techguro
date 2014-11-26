@@ -1,0 +1,188 @@
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#ac" ).accordion();
+  });
+  </script>
+</head>
+<body>
+ 
+
+
+
+
+<div id="ac">
+  <h3>ITEM 1</h3>
+  <div>
+    <p>
+    This is only first Item descriptions </p>
+  </div>
+  <h3>item 2</h3>
+  <div>
+    <p>
+     This is only second Item descriptions</p>
+  </div>
+  <h3>item 3</h3>
+  <div>
+    <p>
+     This is only third Item descriptions</p>
+    <ul>
+      <li> class one</li>
+      <li> class two</li>
+      <li> class three</li>
+    </ul>
+  </div>
+  <h3>item 4</h3>
+  <div>
+    <p>
+     This is only fourth Item descriptions</p>
+    <p>
+    </p>
+  </div>
+</div>
+
+
+
+  <style>
+    .to { width: 300px; 
+height: 100px; 
+position: relative; }
+    #bu { padding: .3em 3em; 
+text-decoration: none; }
+    #ef { width: 490px; 
+ padding: 1em;  
+font-size: 1.2em; 
+border: 1px solid #002; 
+background: white;
+ color: #243; }
+    .ne { text-indent: 30px;
+ letter-spacing: .8em;
+ width: 230px; 
+height: 190px; 
+padding: 360px;
+ margin: 4px; 
+font-size: 2.2em; }
+  #uu {
+    width: 450px;
+    float: left;  
+    padding: 10px;
+    margin: 4px;
+    background-color: white;
+  }
+  #ui {
+    width: 450px;
+    float: right;  
+    padding: 10px;
+    margin: 4px;
+    background-color: white;
+  }
+
+  </style>
+  <script>
+  $(function() {
+    $( "#bu" ).click(function() {
+      $( "#ef" ).addClass( "ne", 777, callback );
+    });
+ 
+    function callback() {
+      setTimeout(function() {
+        $( "#ef" ).removeClass( "ne" );
+      }, 999 );
+    }
+  });
+
+   $(document).ready(function() {
+  $("li").eq(8).css("color", "blue");
+    $("#id3").css("color", "red");
+});
+  </script>
+
+ 
+<div class="to">
+  <div id="ef" class="ui-corner-all">
+  here us is a text form text being some texts</div>
+</div>
+<br>
+<br>
+<br>
+<br> 
+<button id="bu" class="btn btn-btn-success">Start</button>
+<br>
+ 
+ <!-- 
+</body>
+</html> -->
+<style>
+ ul {
+    margin-left: 30px;
+    color: #64FE2E;
+  }
+  li {
+    cursor: default;
+  }
+  li.active {
+    background: black;
+    color: white;
+  }
+  span {
+    color:red;
+  }
+ </style>
+ 
+<ul>
+  <li> CMPT </li>
+  <li>CMPT 470</li>
+  <li>YES MAY</li>
+  <li id="id3">CMPT 383</li>
+  <li>NEVER EVER</li>
+  <li>CMPT 308</li>
+  <li>ARe you Ok?</li>
+<li>CMPT 454</li>
+  <li>you are Ok</li>
+
+
+</ul>
+ 
+<script>
+$( "li" )
+  .filter( ":odd" )
+    .hide()
+  .end()
+  .filter( ":even" )
+    .hover(function() {
+      $( this )
+        .toggleClass( "active" )
+        .next()
+          .stop( true, true )
+          .slideToggle();
+    });
+</script>
+<div id="uu">
+<h2> Infinite Ajax Scroll </h2>
+
+<p>
+ It allows  browsers to load very long pages in a very short time so that this plugin is very usefull for webpages with long informations pages. This one let the user whenever he scroll for more information browser would render more to see, this technology specially is very usefull for mobile applications and it saves money and save data communicate among user and server and brings them speed  to browse on pages and getting data. In this way we optimize the information on webpages for users. 
+</p> 
+</div>
+<br >
+<div id="ui">
+<h2> Bootstrap Image Gallery </h2>
+<p>
+It is very interesting plugin which let the user to see all images in a very nice framework, it lets him to customize pictures and also it is available for videos. This allows the user to navigate by either mouse and keyboard, very freindly environment and it is vey popular and common use in web sites dealing with pictures and videos such as facebook or instageram. It shows videos and pictures on a bootstrap framework which makes it nicer and clean appearance.
+</p>
+</div>
+
+
+
+	
+		
+</body>	
+</html>
+
+	

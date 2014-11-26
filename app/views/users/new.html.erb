@@ -1,0 +1,17 @@
+<div class="col-md-4"></div>
+<div class="col-md-5">
+<div class="container-fluid">
+<h1> New Admin</h1>
+
+<%= bootstrap_form_for @user  do |f| %>
+     <%=  f.text_field :name %> 
+     <%=  f.text_field :last %> 
+     <%=  f.text_field :email %> 
+     <%=  f.text_field :phone %> 
+     <%=  f.text_field :code %> 
+     <%=  f.password_field :password %> 
+     <%=  f.password_field :password_confirmation  %> 
+  <%= f.submit %> 
+ <% end %> </div>
+</div>
+<div class="col-md-3"></div>

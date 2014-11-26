@@ -1,0 +1,43 @@
+   <div class="dash-unit">
+        <h2> Items </h2>
+          <hr>
+            <div id="space"></div>
+     
+
+          
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tags</th>
+      <th>Count</th>
+      <th>Supplier</th>
+      <th>Stock</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.tags %></td>
+        <td><%= item.count %></td>
+        <td><%= item.supplier %></td>
+        <td><%= item.stock %></td>
+        <td><%= image_tag item.avatar.url(:small)%></td>
+        <td><button type="button" class="btn btn-success"><%= link_to 'Show', item %></td></button>
+        <td><button type="button" class="btn btn-info"><%= link_to 'Edit', edit_item_path(item) %></td></button>
+  </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>    
+    <button type="button" class="btn btn-primary"> <%= link_to 'New Item', new_item_path %></button>
+      </div>
+        </div>
+        
+     <br><br>
