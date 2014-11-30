@@ -1,44 +1,77 @@
+ 
 
 
+<style >
+
+strong {
+ font-size: 16;
+}
+</style> 
+ 
+   
 <div class = "container">
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
 
 <table class="table  table-hover table-bordered ">
 <tr> 
- <td> <strong><h3>Image:</h3></strong></td>
+ <td> <strong>Image:</strong></td>
 <td><div class="img-circle img-responsive" alt="Responsive image"> <%= image_tag @item.avatar.url(:small) %> </div>
  </td>
 </tr>
 <tr>
 <td>
- <strong><h3>Name:</h3></strong>
+ <strong>Name:</strong>
  </td>
-<td> <h3><%= @item.name %></h3>
+<td> <%= @item.name %>
 </td>
 </tr>
 <tr>
 <td>  
-<strong><h3>Tags:</h3></strong></div>
+<strong>Tags:</strong></div>
  </td>
-<td> <h3><%= @item.tags %></h3>
+<td> <%= @item.tags %>
  </td>
 </tr>
 <tr>
-<td> <strong><h3>Count:</h3></strong>
+<td> <strong>Count:</strong>
 </td>
 <td>
-  <h3><%= @item.count %></h3>
+  <%= @item.count %>
 </td>
 </tr>
 <tr>
-<td>  <strong><h3>Supplier:</h3></strong></td>
-<td><h3><%= @item.supplier %></h3></td>
+<td>  <strong>Supplier:</strong></td>
+<td><%= @item.supplier %></td>
 </tr>
+
 <tr>
 <td>
-  <strong><h3>Price:</h3></strong></td>
-<td> <h3><%= @item.stock %></h3></td>
+  <strong>Price:</strong></td>
+<td>
+<% if current_user.present? %> 
+ <%= @item.stock %></td>
+ <% else %>
+ <h5> Only Admin Can Access to the Price</h5></td>
+ <% end %>
+</tr>
+<tr>
+<td>  <strong>Created At:</strong></td>
+<td>
+<% if current_user.present? %> 
+<%= @item.created_at %></td>
+<% else %>
+ <h5> Only Admin Can Access to the Time of Adding Items</h5></td>
+ <% end %>
+</tr>
+<tr>
+<td>  <strong>Updated At:</strong></td>
+<td>
+<% if current_user.present? %> 
+<%= @item.updated_at %></td>
+<% else %>
+ <h5> Only Admin Can Access to the Time of Modifications</h5></td>
+ <% end %>
 </tr>
 </table>
 </div>

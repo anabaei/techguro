@@ -3,6 +3,10 @@
 <head>
   <title>TechGuru</title>
 
+   <%= javascript_include_tag "application" %> 
+   <%= javascript_include_tag :defaults %>
+   <%= csrf_meta_tag %>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
@@ -11,7 +15,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
 <style>
-.btn-warning { background-color: black; } 
 
 body {
     background-color: white;
@@ -24,12 +27,6 @@ body {
   <%= csrf_meta_tags %>
 </head>
 <body>
-<br>
-<br>
-<br>
-<%= notice %>
-<%= alert %>
-
   <!-- NAVIGATION MEN -->
     <div class="navbar-nav navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -39,35 +36,39 @@ body {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%=image_tag=("/images/a.jpg")%> 
         </div> 
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><i class="icon-home icon-white"></i> <%= link_to 'Home', items_path %></li>
              <!--  <li><a href="show.json.jbuilder"><i class="icon-folder-open icon-white"></i> File Manager</a></li> -->
             <!--   <li><a href="calendar.html"><i class="icon-calendar icon-white"></i> Calendar</a></li> -->
-             
+            <% if current_user.present? %> 
               <li><i class="icon-lock icon-white"></i> <%= link_to 'New', new_item_path %></a></li>
              <!--  <li><a href="show.html.erb"><i class="icon-user icon-white"></i> User</a></li> -->
+              <% end %>
              <% if current_user.present? %>
            <!--   Welcome <%= current_user.name %>! -->
              <li><i class="icon-lock icon-white"></i> <%= link_to 'Sign Out', logout_path %></a></li>
              <% else %>
-              <li><i class="icon-lock icon-white"></i> <%= link_to 'sign up', new_user_path %></a></li>
-                <li><i class="icon-lock icon-white"></i> <%= link_to 'log in', login_path %></a></li>
+              <li><i class="icon-lock icon-white"></i> <%= link_to 'Register', new_user_path %></a></li>
+                <li><i class="icon-lock icon-white"></i> <%= link_to 'Log In', login_path %></a></li>
                  <% end %>
-            </ul>
+                 <li> <i class="icon-lock icon-white"></i> <%= link_to( "Heroku_server", "https://techguru470.herokuapp.com/items") %> </a> </li>
+                </ul>
           </div><!--/.nav-collapse -->
         </div>
     </div>
-  <% if current_user.present? %>
-         <h2>    Welcome <%= current_user.name %>! </h2>
-            <% else %>  <% end %>
-<br>
-<br><br>
+  <div class="container">
+ <div id="flash_messages"><%= flash_messages(:close, :fade) %></div>
+  <%= alert %>
+           <div class="container">
+               <% if current_user.present? %>     
+               <h3>&nbsp;    Welcome <%= current_user.name %>! </h2>
+                <% else %>  <% end %>
+            </div>
 
-<%= yield %>
-
+           <%= yield %>
+     </div>
         
 
 </body>

@@ -14,21 +14,22 @@ class UsersController < ApplicationController
 
 
    if @user.save
-    flash[:notice] = "You are new User, Confirmation letter has been sent"
-   # Pony.mail(to:  params[:email],
-    #        from: "amircmpt@gmail.com",
-     #       subject:  "Thanks for the signup dear #{params[:email]} at TechGuru Project",
-    #        via: :smtp,
-     #         via_options: {
-      #        address: "smtp.gmail.com",
-       #       port: "587",
-        #      enable_starttls_auto: true,
-       #       user_name: "answerawesome",
-        #      password: "Sup3r$ecret",
-         #     authentication: :plain,
-          #    domain: "gmail.com"
-         #   }
-          #  )
+    flash[:success] = "You are new User, welcoem to your app!"
+     sign_in @user
+  #  Pony.mail(to:  params[:email],
+   #         from: "amircmpt@gmail.com",
+    #        subject:  "Thanks for the signup dear #{params[:email]} at TechGuru Project",
+     #      via: :smtp,
+      #        via_options: {
+       #      address: "smtp.gmail.com",
+        #     port: "587",
+         #     enable_starttls_auto: true,
+        #      user_name: "answerawesome",
+        #     password: "Sup3r$ecret",
+         #    authentication: :plain,
+        #      domain: "gmail.com"
+        #    }
+         #   )
 
    redirect_to root_url   
    else

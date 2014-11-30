@@ -1,0 +1,61 @@
+<html>
+		
+   <div class="col-sm-3 col-lg-3">
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/three.min.js"></script>
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/Detector.js"></script>
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 50, W/H, 1, 10000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+				
+				
+				map = THREE.ImageUtils.loadTexture('../texturez/proxy.php?url=http://api.ning.com/files/uFLBuxNdlgOwpQzVO2HlnvBV19bhOluASVEEC5WZJlB-prbvRUUpCqBimmt0QrxR/Thetechgurutitlecopy2.jpg?width=400&height=400');
+geometry = new THREE.CircleGeometry(135.06, 50, 1, 6.283185307179586);
+material = new THREE.MeshBasicMaterial({shading: THREE.SmoothShading, color: 0xffffff, map: map});
+mesh = new THREE.Mesh(geometry, material);
+map.wrapS = map.wrapT = THREE.RepeatWrapping;
+map.repeat.set( 1, 1 );
+mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.12;
+mesh.position.y = 27.5;
+mesh.castShadow = true;
+scene.add(mesh);
+
+renderer.shadowMapEnabled = true;
+
+
+			}
+
+			function draw() {
+
+				requestAnimationFrame( draw );
+				
+			      
+				   camera.position.x = Math.sin( Date.now() * 0.002 ) * 50;
+				  mesh.position.y = Math.sin( Date.now() * 0.002 ) * 20;
+			
+
+				renderer.render( scene, camera );
+
+			}
+
+			setup();
+			draw();
+
+		</script>
+		
+	
+</div>

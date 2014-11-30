@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
 #  respond_to :html, :json
   # GET /items
   # GET /items.json
@@ -16,7 +15,9 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item = Item.find(params[:id])
-  end
+     session[:item_id ]= @item.id 
+     session[:item_name] = @item.name 
+ end
 
 
   # GET /items/new
@@ -27,7 +28,10 @@ class ItemsController < ApplicationController
   # GET /items/1/edit
   def edit
   @item = Item.find(params[:id])
-  end
+     session[:edit_name] = @item.name
+     session[:visit2] ||= 0
+     session[:visit2] += 1 
+ end
 
   # POST /items
   # POST /items.json
@@ -36,7 +40,8 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        flash[:notice] = "Post successfully created"
+        format.html { redirect_to @item, notice: 'Post successfully created' }
         format.json { render :show, status: :created, location: @item }
    #    Pony.mail(to:  "anabaei@sfu.ca",
     #        from: "amircmpt@gmail.com",
@@ -83,10 +88,8 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-      respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }  
-  end
+     respond_to :html, :js
+
 end
   private
 

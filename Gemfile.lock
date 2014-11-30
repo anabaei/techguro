@@ -33,6 +33,7 @@ GEM
     bcrypt (3.1.7)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
+    bootstrap_flash_messages (1.0.0)
     bootstrap_form (2.2.0)
     builder (3.2.2)
     carrierwave (0.10.0)
@@ -142,6 +143,7 @@ DEPENDENCIES
   ajaxify_rails
   bcrypt (~> 3.1.7)
   bootstrap-sass
+  bootstrap_flash_messages
   bootstrap_form
   carrierwave
   coffee-rails (~> 4.0.0)
