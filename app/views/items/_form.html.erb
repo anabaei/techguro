@@ -5,6 +5,7 @@
 <div class="col-md-4"></div>
 <div class="col-md-4">
 </div>
+<% if current_user.present? %>
 <div class="col-md-2 btn btn-default btn-lg active ">
 <%= link_to 'Show', @item %></div>
 <div class="col-md-2 btn btn-default btn-lg active">
@@ -45,5 +46,9 @@
 
 
 <% end %>
+  <% else %>
+  <h3> <center>  You are not authenticated to this page </center> </h3>
+ <% end %>
+
 </div>
 </div>
