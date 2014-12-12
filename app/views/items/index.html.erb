@@ -32,35 +32,56 @@ $(function() {
 
 </script>
 
+
+    
 <div class="container col-sm-12">
 <div class="col-sm-4">  
- <h5> Last item viewed today:  <%= session[:item_name] %> </h5> 
-  <% if current_user.present? %>  <h5> Total items edited by <%= current_user.name %> =  <%= session[:visit2] %> </h5> 
-  <% end %> 
- <h5> Last item edited:  <%= session[:edit_name] %>  </h5>
+   <% if current_user.present? %>
+    <ol class="breadcrumb">
+   <li> <h5> Last item viewed today:  <%= session[:item_name] %> </h5>
+    </li>
+    </ol>
+  <ol class="breadcrumb">
+  <li>
+  <h5> Total items edited by  <%= current_user.name %> is equla to <strong> <%= session[:visit2]  %> </strong> </h5>
+  </li>
+  </ol>
+  <ol class="breadcrumb">
+   <li>
+  <h5> Last item edited:  <%= session[:edit_name] %>  </h5>
+   </li>
+  </ol>
+   <% end %>
 </div>
-<div class="col-sm-8"> 
+<div class="col-sm-8">
 </div>
 </div>
+
+
+
+
 
 <div class="container">
     <div class="col-sm-2"> </div>
     <div class="col-sm-8">
         <center>  <h3>Search By Tags</h3>
         </center>
-	<div class="form-group">	
+        <div class="form-group">
              <%= form_tag(items_path,layout: :horizontal, label_col: "col-sm-8", control_col: "col-sm-8" ,:method => "get", id: "search-form") do %>
-  	      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Tags" %>
-	<% end %>
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Tags" %>
+        <% end %>
         </div>
       </div>
     <div class="col-sm-2"> </div>
   </div>
-
-
 <div class="container">
 <div class="col-sm-12"></div>
-<div id="items"> <%= render 'items' %> </div>        
+<div id="items"> <%= render 'items' %> </div>
 </div>
 </div>
     </html>
+
+
+
+
+
