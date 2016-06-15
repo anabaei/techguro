@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '4.2.4'
 # Use mysql as the database for Active Record
 #gem 'mysql2'
-gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'
@@ -47,3 +47,13 @@ gem 'pony'
 gem 'ajaxify_rails'
 gem 'jquery-turbolinks'
 gem 'rails_12factor', group: :production
+
+group :development, :test do # <<<< :development, not devlopment
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+end
+
+gem 'aws-sdk'

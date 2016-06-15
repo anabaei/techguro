@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141112222300) do
 
-  create_table "items", force: true do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "tags"
     t.string   "count"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141112222300) do
     t.datetime "avatar_updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.string   "name"
@@ -38,6 +38,6 @@ ActiveRecord::Schema.define(version: 20141112222300) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
