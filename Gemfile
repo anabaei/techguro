@@ -56,4 +56,4 @@ group :production do
   gem 'pg'
 end
 
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
