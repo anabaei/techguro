@@ -185,7 +185,7 @@ PLATFORMS
 
 DEPENDENCIES
   ajaxify_rails
-  aws-sdk
+  aws-sdk (~> 2.0)
   bcrypt (~> 3.1.7)
   bootstrap-sass
   bootstrap_flash_messages
