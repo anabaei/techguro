@@ -1,28 +1,33 @@
-== README
+== Techguro Project 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a group Ruby on Rails project using AWS to  manage images as a third party for storage, using Ajax to build an engine search tool and have login page to allow users to upload items. 
+To create a user profile, users should meet all requirements in registration form to pass through validation process.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Database is used for prostgresql to deploy on Heroku. 
+For assignment project we defined same project running on Aphe web server and SQL database. 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Testing 
+
+As an example we test only login page here to make sure most of program running well, to fully functional you can write your own test scenarios. 
+We use rspec test framework in test and development environment
+I use factory girl gem instead of texture
+and use capybara to simulate user and guard for automatic run spec 
+
+Steps: 
+  run bundle to install gems 
+  create spec model spec model and spec routing directory 
+  in order to speaking to guard we run guard init spec
+if you are on mac install rb-fsevent gem that guard can detect gems
+  then run guard 
+  enable capybara in spec_helper.rb  and remove fixture path from
+
+In console we run:
+   rails g integration_test mytest
+then remove the default setting
+  it “test the login page” do 
+    visit login_path
+     fill_in “Email”, :with => “aaa@sfu.ca”
+     fill_in “password”, :with => “32422”
+    click_button “submit" 
+  end
