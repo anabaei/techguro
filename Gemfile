@@ -56,4 +56,12 @@ group :production do
   gem 'pg'
 end
 
+gem "rspec-rails", :group => [ :test, :development]
+group :test do
+ gem  "factory_girl_rails"
+ gem "capybara"
+ gem "guard-rspec"
+ gem "ffaker"
+end
+
 gem 'aws-sdk', '~> 2.0'
